@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+// Require dependencies
+var repl = require('repl');
+var path = require('path');
+
+// Determine clean name
+var file = process.argv[2];
+var ext = path.extname(file);
+var name = path.basename(file, ext);
+
+// Load module and expose properties
+var mod = require(path.resolve(file));
+var r = repl.start({ prompt: name + '> ' });
+Object.keys(mod).forEach(function (key) {
+	r.context[key] = mod[key];
+});

@@ -1,0 +1,11 @@
+{
+  "name": "replin",
+  "version": "0.0.1",
+  "description": "Utility to expose any commonjs module to a repl context",
+  "bin": {
+    "replin": "./bin/replin"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}
