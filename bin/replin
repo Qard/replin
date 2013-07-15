@@ -25,6 +25,7 @@ var r = repl.start({
 });
 
 // Expose module and all its properties
+r.context[name] = r.context.module = mod;
 Object.keys(mod).forEach(function (key) {
 	r.context[key] = mod[key];
 });
