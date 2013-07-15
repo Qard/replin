@@ -8,9 +8,23 @@ var file = process.argv[2];
 var ext = path.extname(file);
 var name = path.basename(file, ext);
 
-// Load module and expose properties
-var mod = require(path.resolve(file));
-var r = repl.start({ prompt: name + '> ' });
+// Attempt to load module
+var mod;
+try { mod = require(path.resolve(file)); }
+catch (e) {
+	try { mod = require(file); }
+	catch (e) {
+		console.error(e.stack);
+		process.exit(1);
+	}
+}
+
+// Start repl
+var r = repl.start({
+	prompt: name + '> '
+});
+
+// Expose module and all its properties
 Object.keys(mod).forEach(function (key) {
 	r.context[key] = mod[key];
 });
