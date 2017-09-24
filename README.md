@@ -1,5 +1,7 @@
 # Replin
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Qard/replin.svg)](https://greenkeeper.io/)
+
 Replin is a utility to expose any commonjs module to a repl context
 
 # Usage
